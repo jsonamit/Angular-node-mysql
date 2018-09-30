@@ -2,7 +2,6 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize('test', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
-    operatorsAliases: false,
 
     pool: {
         max: 5,
@@ -12,14 +11,12 @@ const sequelize = new Sequelize('test', 'root', '', {
     },
 
     // SQLite only
-    storage: 'path/to/database.sqlite'
+    storage: 'path/to/database.sqlite',
+
+    // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
+    operatorsAliases: false
 });
-sequelize
-    .authenticate()
-    .then(() => {
-        console.log('Connection has been established successfully.');
-         require('../model/userModel/user.model');
-    })
-    .catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
+
+
+
+module.exports=sequelize;
