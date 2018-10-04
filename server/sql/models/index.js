@@ -5,6 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
+const _ = require('lodash');
 // const config = require(__dirname + '/..\config\config.json')[env];
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
@@ -25,6 +26,17 @@ fs
     const model = sequelize['import'](path.join(__dirname, file));
     db[model.name] = model;
   });
+// [
+//     // - User
+//     'User',
+//
+//     // - Address
+//     //'Address'
+//
+// ].forEach((model) => {
+//     const mod = sequelize.import(`../../model/${_.camelCase(model)}/${_.camelCase(model)}.js`);
+//     db[mod.name] = mod;
+// });
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
