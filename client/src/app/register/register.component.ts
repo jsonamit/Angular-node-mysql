@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   register()
   {
     let user=this.addForm.value;
-    this.userservice.userregister(user).then(
+    this.userservice.userregister(user).subscribe(
       res=>{
         if (res) {
           this.statusMassege="Data inserted";
