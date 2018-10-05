@@ -2,7 +2,6 @@ const express=require('express');
 const http=require('http');
 const app=express();
 const config=require('./config/express');
-//require('./dbconnection/conn');
 const db=require('./sql/models/index');
 
 config(app);

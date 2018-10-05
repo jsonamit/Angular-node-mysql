@@ -29,10 +29,10 @@ export class RegisterComponent implements OnInit {
     let user=this.addForm.value;
     this.userservice.userregister(user).then(
       res=>{
-        if (res.statusCode == 200) {
+        if (res) {
           this.statusMassege="Data inserted";
           console.log(this.statusMassege);
-          this.router.navigate(['user']);
+          this.addForm.reset();
         }
         else {
           this.statusMassege="Data not inserted";

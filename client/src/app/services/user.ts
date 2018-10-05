@@ -12,7 +12,7 @@ export class Userservice {
 
   params:any;
   userregister(body){
-    return this.http.post(this.apiurl+'/user',{body}, { headers: this.headers })
+    return this.http.post(this.apiurl+'/user/register',body, { headers: this.headers })
       .toPromise()
       .then(res => res)
       .catch(this.handleError);
